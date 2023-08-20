@@ -1,0 +1,160 @@
+/* Global Styles */
+body {
+    color: #2f2f2f;
+  }
+  
+  html {
+    background-color: #ecee77;
+  }
+  
+  /* Navigation Styles */
+  nav {
+    height: 6rem;
+  }
+  
+  nav ul a,
+  nav .brand-logo,
+  .page-footer,
+  .page-footer .footer-copyright,
+  #dividerL,
+  #dividerR,
+  .nav-wrapper {
+    color: #2F4858;
+  }
+  
+  a {
+    color: #008A7D;
+  }
+  
+  /* Typography Styles */
+  p {
+    line-height: 2rem;
+  }
+  
+  /* Button Styles */
+  .btn {
+    background-color: #2F4858;
+  }
+  
+  /* Profile Image Styles */
+  #profileImg {
+    margin-top: 2.25rem;
+  }
+  
+  @media only screen and (min-width: 915px) {
+    #profileImg {
+      margin-top: 3rem;
+    }
+  }
+  
+  /* Parallax Container Styles */
+  .parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .parallax-container .section {
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 992px) {
+    .parallax-container .section {
+      position: absolute;
+      top: 40%;
+    }
+    #index-banner .section {
+      top: 10%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .at600 {
+      margin-top: 2.25rem;
+    }
+    #index-banner .section {
+      top: 0;
+    }
+  }
+  
+  /* Icon Block Styles */
+  .icon-block {
+    padding: 0 15px;
+  }
+  
+  .icon-block .material-icons {
+    font-size: inherit;
+  }
+  
+  /* Footer Styles */
+  footer.page-footer {
+    margin: 0;
+  }
+  
+  /* Contact Me Styles */
+  .links li {
+    list-style-type: none;
+    display: inline;
+    padding-right: 0.75rem;
+    margin-left: 0.25rem;
+    color: #2F4858;
+  }
+  
+  /* Input Field Styles */
+  .input-field input[type]:not([readonly]),
+  .input-field input[type]:focus:not([readonly]),
+  .input-field textarea:not([readonly]),
+  .input-field textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #2F4858;
+    box-shadow: 0 1px 0 0 #2F4858;
+  }
+  
+  .input-field input[type]:focus:not([readonly]) + label,
+  .input-field textarea:focus:not([readonly]) + label {
+    color: #2F4858;
+  }
+  
+  /* Invalid Input Field Styles */
+  .input-field input[type].invalid,
+  .input-field input[type].invalid:focus,
+  .input-field textarea.invalid,
+  .input-field textarea.invalid:focus {
+    border-bottom: 1px solid #2F4858;
+    box-shadow: 0 1px 0 0 #2F4858;
+  }
+  
+  .input-field input[type].invalid:focus + label,
+  .input-field input[type].invalid ~ .helper-text::after,
+  .input-field input[type].invalid:focus ~ .helper-text::after,
+  .input-field textarea.invalid:focus + label,
+  .input-field textarea.invalid ~ .helper-text::after,
+  .input-field textarea.invalid:focus ~ .helper-text::after {
+    color: #2F4858;
+  }
+  
+  /* Valid Input Field Styles */
+  .input-field input[type].valid,
+  .input-field input[type].valid:focus,
+  .input-field textarea.valid,
+  .input-field textarea.valid:focus {
+    border-bottom: 1px solid #2F4858;
+    box-shadow: 0 1px 0 0 #2F4858;
+  }
+  
+  .input-field input[type].valid:focus + label,
+  .input-field input[type].valid ~ .helper-text::after,
+  .input-field input[type].valid:focus ~ .helper-text::after,
+  .input-field textarea.valid:focus + label,
+  .input-field textarea.valid ~ .helper-text::after,
+  .input-field textarea.valid:focus ~ .helper-text::after {
+    color: rgb(88, 47, 72);
+  }
+  
+  /* Form Input Styles */
+  input[type="text"],
+  input[type="button"] {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+  }
+  
