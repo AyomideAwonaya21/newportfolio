@@ -40,14 +40,16 @@ p {
 }
 
 /* Profile Image Styles */
-#profileImg {
-  margin-top: 2rem;
-  z-index: 1; /* Ensure the profile picture is above the background image */
+#profileImgContainer {
+  background-image: url('./assets/images/myimage.png');
+  background-size: cover;
+  background-position: center;
+  height: 300px; /* Adjust height as needed */
 }
 
-@media only screen and (min-width: 915px) {
-  #profileImg {
-      margin-top: 2.5rem;
+@media only screen and (max-width: 600px) {
+  #profileImgContainer {
+      height: 200px; /* Adjust height for smaller screens */
   }
 }
 
