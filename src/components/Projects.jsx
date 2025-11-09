@@ -1,76 +1,84 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
 export default function Projects() {
+  const projects = [
+    {
+      title: "SmartCart",
+      desc: "An intelligent shopping assistant that tracks items, estimates total cost, and suggests discounts in real time. Built with React, Node.js, Express, MongoDB, and AWS.",
+      image: "/projects/smartcart.jpg",
+      link: "https://github.com/AyomideAwonaya21/SmartCart",
+    },
+    {
+      title: "EDI Translator / Validator",
+      desc: "A web tool that converts and validates EDI X12 transactions (850, 810) into JSON. Built with Python, FastAPI, and React for efficient parsing and validation workflows.",
+      image: "/projects/edi.jpg",
+      link: "https://github.com/AyomideAwonaya21/edi-translator",
+    },
+    {
+      title: "Habitly Tracker",
+      desc: "A full-stack habit tracking system built with Java, Spring Boot, Angular, MySQL, JWT, and AWS. Manage habits, visualize streaks, and stay accountable through analytics.",
+      image: "/projects/habitly.jpg",
+      link: "https://github.com/AyomideAwonaya21/habitly-tracker",
+    },
+    {
+      title: "Personality Pet Finder",
+      desc: "A personality-based pet matching app using React, GeoAPIfy, and the Petfinder API. Helps users discover adoptable pets that align with their personality traits.",
+      image: "/projects/petfinder.jpg",
+      link: "https://ayomideawonaya21.github.io/The-Ultimate-Personality-Pet-Finder/",
+    },
+    {
+      title: "Weather Dashboard",
+      desc: "A dynamic weather dashboard using JavaScript and the OpenWeather API. Delivers real-time conditions and 7-day forecasts based on user location.",
+      image: "/projects/weather.jpg",
+      link: "https://ayomideawonaya21.github.io/weather-dashboard/",
+    },
+  ];
+
   return (
-    <main className="py-20 px-4 max-w-6xl mx-auto text-center">
+    <main className="py-20 px-4 max-w-7xl mx-auto text-center">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl font-bold mb-6"
+        className="text-4xl font-bold mb-10"
       >
         Selected Projects
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className="border p-6 rounded-lg shadow hover:shadow-lg transition"
-        >
-          <h3 className="text-2xl font-semibold mb-2">Habitly Tracker</h3>
-          <p className="mb-4">
-            A full-stack habit tracker built with Java, Spring Boot, Angular,
-            MySQL, JWT, and AWS. Manage personal goals with secure auth and an
-            intuitive dashboard.
-          </p>
-          <a
-            href="https://github.com/AyomideAwonaya21/habitly-tracker"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 underline"
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((p, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.02 }}
+            className="border rounded-xl overflow-hidden shadow hover:shadow-lg transition bg-white/60 dark:bg-white/5"
           >
-            View Project
-          </a>
-        </motion.div>
-
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className="border p-6 rounded-lg shadow hover:shadow-lg transition"
-        >
-          <h3 className="text-2xl font-semibold mb-2">Pet Finder App</h3>
-          <p className="mb-4">
-            A responsive web app using React, GeoAPIfy, and the Petfinder API.
-            Find pets in real-time, filtered by location, with a smooth UX.
-          </p>
-          <a
-            href="https://ayomideawonaya21.github.io/The-Ultimate-Personality-Pet-Finder/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 underline"
-          >
-            View Project
-          </a>
-        </motion.div>
-
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className="border p-6 rounded-lg shadow hover:shadow-lg transition"
-        >
-          <h3 className="text-2xl font-semibold mb-2">Weather Dashboard</h3>
-          <p className="mb-4">
-            A real-time weather dashboard built with JavaScript and the Open
-            Weather API. Delivers dynamic forecasts based on user input.
-          </p>
-          <a
-            href="https://ayomideawonaya21.github.io/weather-dashboard/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 underline"
-          >
-            View Project
-          </a>
-        </motion.div>
+            <a href={p.link} target="_blank" rel="noopener noreferrer">
+              <img
+                src={p.image}
+                alt={p.title}
+                className="w-full h-52 object-cover"
+                loading="lazy"
+              />
+            </a>
+            <div className="p-5 text-left">
+              <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                {p.desc}
+              </p>
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition text-sm font-medium"
+              >
+                <ExternalLink size={16} />
+                View Project
+              </a>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </main>
   );
