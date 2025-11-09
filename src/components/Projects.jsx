@@ -11,62 +11,57 @@ export default function Projects() {
   ];
 
   return (
-    <main className="py-10 px-3 sm:px-4 max-w-7xl mx-auto">
+    <section className="relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black text-white py-16 sm:py-20">
+      {/* background glow */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute top-40 left-1/3 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
+      </div>
+
       <motion.h2
-        initial={{ opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35 }}
-        className="text-center text-2xl sm:text-3xl font-bold mb-6"
+        transition={{ duration: 0.6 }}
+        className="text-center text-3xl sm:text-4xl font-bold mb-12 tracking-tight"
       >
-        Selected Projects
+        Featured Projects
       </motion.h2>
 
-      {/* Compact, stylish thumbnail grid (2 → 3 → 5 cols) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8">
         {projects.map((p, i) => (
-          <motion.article
+          <motion.div
             key={p.title}
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.25, delay: i * 0.03 }}
-            className="group relative overflow-hidden rounded-lg border bg-white/60 dark:bg-white/5 shadow-sm"
+            transition={{ delay: i * 0.1, duration: 0.4 }}
+            whileHover={{ scale: 1.03 }}
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-2xl transition"
           >
-            <a
-              href={p.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open ${p.title}`}
-              className="block outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white/80 dark:focus-visible:ring-offset-black/40"
-            >
-              {/* Taller on mobile for clarity; wider on larger screens */}
-              <div className="aspect-[4/3] sm:aspect-[16/10] w-full">
+            <a href={p.link} target="_blank" rel="noopener noreferrer">
+              {/* Image layer */}
+              <div className="aspect-[16/10] w-full overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.title}
-                  className="h-full w-full object-cover object-center"
                   loading="lazy"
                   decoding="async"
-                  sizes="(min-width:1024px) 20vw, (min-width:640px) 30vw, 48vw"
+                  className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
                 />
               </div>
 
-              {/* Hover overlay (desktop only) */}
-              <div className="pointer-events-none absolute inset-0 hidden sm:flex items-end">
-                <div className="inset-x-0 bottom-0 translate-y-3 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 w-full">
-                  <div className="m-2 rounded-md bg-black/55 px-2 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
-                    {p.title}
-                  </div>
+              {/* Overlay with glow & text */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
+                <div className="p-4 w-full text-left">
+                  <h3 className="text-lg font-semibold text-emerald-400">{p.title}</h3>
+                  <p className="text-xs text-gray-300 mt-1 opacity-90">
+                    Click to view details
+                  </p>
                 </div>
               </div>
-
-              {/* Mobile caption (always visible on xs; hidden from sm up) */}
-              <figcaption className="sm:hidden px-2 py-1.5 text-[11.5px] text-gray-700 dark:text-gray-300 truncate">
-                {p.title}
-              </figcaption>
             </a>
-          </motion.article>
+          </motion.div>
         ))}
       </div>
-    </main>
+    </section>
   );
 }
